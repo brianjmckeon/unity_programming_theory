@@ -82,3 +82,5 @@ Farmyard: Creates the playfield.
 Target: Animates the player's target reticle.
 
 FarmerController: Provides for camera and player control.
+
+Menu: Controller of the menu scene.
