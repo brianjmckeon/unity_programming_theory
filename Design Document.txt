@@ -1,0 +1,84 @@
+Design Document
+
+Overview:
+
+A 3D farmyard simulation that might serve as the basis for a future game.
+
+
+Game Objects:
+
+Farmyard:
+
+The playing surface. It's a grid composed of Producer tiles that generate different kinds of Resources.
+Each tile can produce various types of resources.
+The farmyard is surrounded by fence walls that are generated programmatically.
+The fence walls serve as bounds for the playing area.
+
+Producers:
+
+Are unique tiles that generate Resources at different rates.
+Tiles produce a certain number of resources during their productive period and then go dormant.
+After their dormant period, they start producing again.
+
+Resources:
+
+Are unique types of vegetation that the farmer must collect. e.g. hay, apples, cabbage, weeds.
+Resources spoil over time and will disappear once they've completely spoiled.
+As resources spoil, their onscreen representation will change.
+Some resources are edible while others aren't.
+Resources can be animated or static.
+
+Farmer:
+
+The player character.
+The farmer must collect as many resources as possible before they spoil.
+
+Target Reticle:
+
+Represents the location on the playfield where the farmer is moving to.
+
+
+Gameplay:
+
+The player is able to pan the camera using the directional keys, i.e. W/A/S/D or Up/Down/Left/Right.
+Resources are acquired by colliding with them.
+No physics effects will be used.
+
+The player controls the farmer by using the mouse to aim the target reticle while holding down the left mouse button.
+The farmer will run to the reticle's location and stop once it arrives.
+
+
+Technicals:
+
+Game assets will be acquired from the Unity Asset Store and previous course material.
+This project will demonstrate Object Oriented concepts.
+
+
+Object-Orientation:
+
+Classes:
+
+Producer: Abstract base class for all tiles that produce Resources.
+    Members:
+        productionRate: How often a new resource is produced.
+        productionLimit: How many resources can be produced before the producer goes dormant.
+        dormantPeriod: How long the producer stays dormant before producing again.
+
+    Subclasses:
+        Grass: Subclass that produces Carrot, Cabbage, and Hay.
+        Gravel: Subclass that produces two types of Weed.
+        Orchard: Subclass that produces two types of Apple.
+
+Resource: Abstract base class for all Resources.
+    Members:
+        spoilageRate: How quickly this resource spoils.
+    
+    Methods:
+        bool doesAnimate(): Return true if this resource is animated.
+        void animate(): Performs animation during Update().
+
+Farmyard: Creates the playfield.
+
+Target: Animates the player's target reticle.
+
+FarmerController: Provides for camera and player control.
