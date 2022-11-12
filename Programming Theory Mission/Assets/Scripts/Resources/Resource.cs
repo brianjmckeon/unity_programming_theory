@@ -37,6 +37,7 @@ public abstract class Resource : MonoBehaviour
     }
 
     // Subclasses should override this to perform animation during Update().
+    // ABSTRACTION
     protected virtual void animate() { }
 
     IEnumerator lifeCycle()

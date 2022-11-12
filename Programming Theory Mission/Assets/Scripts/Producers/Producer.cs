@@ -13,6 +13,7 @@ public abstract class Producer : MonoBehaviour
     private int totalProduced = 0;
 
     // Number of seconds until a new resource is created.
+    // ENCAPSULATION
     protected abstract int productionRate { get; }
 
     // The number of resources that can be produced before going dormant.

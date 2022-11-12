@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//INHERITANCE
 public class Apple : Food
 {
     protected override int spoilageRate => 5;
@@ -12,6 +13,7 @@ public class Apple : Food
         return true;
     }
 
+    // POLYMORPHISM
     protected override void animate()
     {
         // Bounce the apple up and down.
